@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="review">
+	<select id="readRange" parameterType="java.util.HashMap"
+		resultType="review.model.ReviewData">
+	<![CDATA[
+	select temp.* from	(
+		select rownum rnum, r.* from review r order by num desc
+	) temp 
+   	where temp.rnum >=#{start } and temp.rnum <=#{end }
+	]]>
+	</select>
+	<select id="totalCount" resultType="java.lang.Integer">
+		select count(*) from review
+	</select>
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions 
+	PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<!-- tiles 설정 파일 / tiles.apache.org 가서 참조 -->
+<tiles-definitions>
+	<definition name="t:index" template="/WEB-INF/view/template.jsp">
+		<put-attribute name="header" value="/WEB-INF/view/common/search.jsp" />
+		<put-attribute name="nav" value="/WEB-INF/view/common/nav.jsp" />
+		<put-attribute name="article" value="/WEB-INF/view/common/main.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/view/common/banner.jsp" />
+	</definition>
+	<definition name="t:join" extends="t:index">
+		<put-attribute name="article" value="/WEB-INF/view/member/join.jsp" />
+	</definition>
+	
+	<definition name="t:file" extends="t:index">
+		<put-attribute name="article" value="/WEB-INF/view/file/reg.jsp" />
+	</definition>
+	
+	<definition name="t:filelist" extends="t:index">
+		<put-attribute name="article" value="/WEB-INF/view/file/list.jsp" />
+	</definition>
+	
+	<definition name="t:reviewall" extends="t:index">
+		<put-attribute name="article" value="/WEB-INF/view/review/list.jsp" />
+	</definition>
+	
+	<definition name="t:socket" extends="t:index">
+		<put-attribute name="article" value="/WEB-INF/view/socket/view.jsp" />
+	</definition>
+	
+	<definition name="t:auth" extends="t:index">
+		<put-attribute name="article" value="/WEB-INF/view/member/auth.jsp" />
+	</definition>
+	
+</tiles-definitions>
+
+
+
+ 

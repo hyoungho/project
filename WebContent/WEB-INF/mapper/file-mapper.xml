@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="file">
+	<insert id="upload" parameterType="java.util.HashMap">
+		insert into files
+		values(files_SEQ.nextval, #{ctg}, #{title}, #{filename},#{fileuuid},
+		#{filesize} , #{uploader}, 0)
+	</insert>
+	<select id="readAll" resultType="file.model.FileData">
+		select * from files order by num
+		desc
+	</select>
+	<update id="upCount" parameterType="java.lang.Integer">
+		update files set count =
+		count +1 where num = #{num }
+	</update>
+	<select id="readOne" resultType="file.model.FileData"
+		parameterType="java.lang.Integer">
+		select * from files where num= #{num }
+	</select>
+	<select id="readTop3" resultType="file.model.FileData">
+	<![CDATA[
+		select rownum, f.* from files f where rownum <=3 order by count desc
+	]]>
+	</select>
+	<select id="searchSome" resultType="file.model.FileData"
+		parameterType="java.lang.String">
+		select * from files where title like #{q }
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
